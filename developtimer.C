@@ -68,7 +68,7 @@ int radiobutton_height = 18;
 
 int count_down;
 
-//the number of Chain
+//Number of Chain
 int Chain_num;
 
 //time difference(hour)
@@ -1046,12 +1046,12 @@ void developtimer()
 	// }
 	k = 0;
 	fs = fopen("setting.txt","r");
-	fscanf(fs,"The number of chains:%d",&Chain_num);
+	fscanf(fs,"Number of chains:%d",&Chain_num);
 	fscanf(fs,"%s",url_webhook);
 	printf("Webhook:%s\n",url_webhook);
 	fscanf(fs,"%s",url_dropbox);
 	printf("Dropbox:%s\n",url_dropbox);
-	printf("The number of chains:%d\n",Chain_num);
+	printf("Number of chains:%d\n",Chain_num);
 	printf("-----------------------\n");
 	printf("| Time  | Process\n");
 	printf("-----------------------\n");
