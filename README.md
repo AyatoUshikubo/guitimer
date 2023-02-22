@@ -1,11 +1,12 @@
-## GUI Timer
-### Start
+# GUI Timer
+## ボタン
+### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/start.png" width="80px">
 タイマーがスタートし、Unlockボタンに切り替わる。
-### Unlock
+### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/unlock.png" width="80px">
 Resetボタンが使用可能になり、Lockボタンに切り替わる。
-### Lock
+### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/lock.png" width="80px">
 Resetボタンが使用不可になり、Unlockボタンに切り替わる。
-### Reset
+### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/reset.png" width="80px">
 タイマーがスタート前に戻る。
 
 ## 画面収録のプライバシー設定(初回のみ)
