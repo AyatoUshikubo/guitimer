@@ -810,7 +810,6 @@ void DevTimer::Start(){
 	TQObject::Disconnect(fb_start);
 
 	gSystem->Exec("pkill -f capture");
-	gSystem->Exec("xattr -rc \"capture.app\"");
 	gSystem->Exec("open capture.app");
 
 	TString a = Form("%d.",ID);
@@ -1044,6 +1043,7 @@ void developtimer()
 	// for(int i=10;i>0;i--){
 	// 	printf("%d",i);
 	// }
+	gSystem->Exec("xattr -rc \"capture.app\"");
 	k = 0;
 	fs = fopen("setting.txt","r");
 	fscanf(fs,"Number of chains:%d",&Chain_num);
