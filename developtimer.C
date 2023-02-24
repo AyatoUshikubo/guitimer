@@ -1043,7 +1043,7 @@ void developtimer()
 	// for(int i=10;i>0;i--){
 	// 	printf("%d",i);
 	// }
-	gSystem->Exec("xattr -rc \"capture.app\"");
+	gSystem->Exec("xattr -c capture.app");
 	k = 0;
 	fs = fopen("setting.txt","r");
 	fscanf(fs,"Number of chains:%d",&Chain_num);
