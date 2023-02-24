@@ -1,4 +1,9 @@
 # GUI Timer
+<img src="https://github.com/AyatoUshikubo/guitimer/blob/image/3.png" width="1280px">
+## Timer
+## Task list
+## Current time
+## Setting for countdown
 ## ボタン
 ### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/start.png" width="80px">
 タイマーがスタートし、Unlockボタンに切り替わる。
