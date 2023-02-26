@@ -8,7 +8,7 @@
 #include<TSystem.h>
 
 //Mac:" -v Speaker" Speaker = Alex(US)Daniel(GB)Fiona(scotland)Fred(US)Karen(AU)Moira(IE)Rishi(IN)Samantha(US)Tessa(ZA)Veena(IN)Victoria(US) Kyoko(JP)
-TString who_say = "Alex";
+TString who_say;
 
 int x_timer = 172;
 
@@ -82,6 +82,8 @@ int k;
 
 char url_webhook[128];
 char url_dropbox[128];
+char speaker[16];
+char buff[128];
 
 // limit
 const int limit_process = 16;
@@ -1040,21 +1042,32 @@ DevTimers::DevTimers() : TGMainFrame(gClient->GetRoot(),10,10,kMainFrame | kVert
 
 void developtimer()
 {
-	// for(int i=10;i>0;i--){
-	// 	printf("%d",i);
-	// }
 	gSystem->Exec("xattr -c capture.app");
+	// gSystem->Exec("say -v \'?\'");
 	k = 0;
 	fs = fopen("setting.txt","r");
+
 	fscanf(fs,"Number of chains:%d",&Chain_num);
-	fscanf(fs,"%s",url_webhook);
+
+	fscanf(fs,"%s",buff);
+	sscanf(buff,"Speaker:%s",speaker);
+
+	fscanf(fs,"%s",buff);
+	sscanf(buff,"Webhook:%s",url_webhook);
+
+	fscanf(fs,"%s",buff);
+	sscanf(buff,"Dropbox:%s",url_dropbox);
+
+	who_say = Form("%s",speaker);
+
 	printf("Webhook:%s\n",url_webhook);
-	fscanf(fs,"%s",url_dropbox);
 	printf("Dropbox:%s\n",url_dropbox);
 	printf("Number of chains:%d\n",Chain_num);
+	printf("Speaker:%s\n",speaker);
 	printf("-----------------------\n");
 	printf("| Time  | Process\n");
 	printf("-----------------------\n");
+
 	while(fscanf(fs,"%d %s",&processtime_min[k],process[k]) != EOF){
 		if(k==0){
 			processtime[k] = processtime_min[k]*60;
@@ -1068,6 +1081,7 @@ void developtimer()
 		k++;
 	}
 	printf("-----------------------\n");
+
 	processmin[k] = processmin[k-1]+processtime_min[k-1];
 	process[k][0] = 'f'; process[k][1] = 'i'; process[k][2] = 'n'; process[k][3] = 'i'; process[k][4] = 's'; process[k][5] = 'h';
 	fclose(fs);
@@ -1080,7 +1094,6 @@ void developtimer()
 	height_timerframe = height_mainframe/(Chain_num/2+Chain_num%2)-2;
 	height_timer = height_timerframe-20;
 	if(height_timer>100){height_timer=100;}
-	// printf("%d",height_timer);
 	y_fb_start = height_timer+20-height_button-4;
 	y_fb_reset = y_fb_start;
 
