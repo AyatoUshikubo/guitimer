@@ -1,7 +1,6 @@
 Number of chains:12
 Speaker:Alex
 Webhook:URL
-Dropbox:URL
 20 develop
 10 stop
 60 fix

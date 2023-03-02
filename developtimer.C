@@ -114,6 +114,7 @@ time_t t0[limit_chains];
 
 int state_send_button = 0;
 bool state_devtimer[limit_chains];
+bool state_capture = true;
 TGPictureButton *fb_send;
 TGPictureButton *fb_url;
 
@@ -136,7 +137,7 @@ class Task : public TGVerticalFrame{
 	~Task(){};
 	void Compare();
 	void Send();
-	void URL();
+	void Capture_State();
 	ClassDef(Task,0)
 };
 
@@ -224,19 +225,22 @@ void Task::Compare(){
 	else{
 		text->DrawTextNDC(0.25,0.875,"First Task");
 	}
-	if(url_if){
-		fb_url->SetState(kButtonDisabled);
-		n++;
-		// text->DrawTextNDC(0.25,0.85,Form("\"Chain%d "+process_send[0]+" %02d:%02d:%02d"+"\"",Chain_id_send[0],eh,em,es));
-		if(n==50){
-			url_if=false;
-			fb_url->SetEnabled();
-		}
+	// if(url_if){
+		// fb_url->SetState(kButtonDisabled);
+		// n++;
+		// // text->DrawTextNDC(0.25,0.85,Form("\"Chain%d "+process_send[0]+" %02d:%02d:%02d"+"\"",Chain_id_send[0],eh,em,es));
+		// if(n==50){
+		// 	url_if=false;
+		// 	fb_url->SetEnabled();
+		// }
+	// }
+
+	if(state_capture){
+		text->DrawTextNDC(0.65,0.875,"Capture function is active.");
 	}
 	else{
-		// text->DrawTextNDC(0.25,0.85,"First Task");
+		text->DrawTextNDC(0.65,0.875,"Capture function is inactive.");
 	}
-	text->DrawTextNDC(0.65,0.875,"Dropbox Link");
 
 	c1->Modified();
 	c1->Update();
@@ -258,12 +262,19 @@ void Task::Send(){
 	l = 0;
 }
 
-void Task::URL(){
-	TString Dropbox = Form("%s",url_dropbox);
-	TString url = "curl -i -X POST -d 'payload={\"text\": \""+Dropbox+"\"}' "+Webhook+" &";
-	gSystem->Exec(url);
-	url_if = true;
-	n = 0;
+void Task::Capture_State(){
+
+	if(state_capture){
+		fb_url->SetPicture(gClient->GetPicture(dir_picture+"ON.png",width_button,height_button));
+		state_capture = false;
+		gSystem->Exec("pkill -f capture");
+	}
+	else{
+		fb_url->SetPicture(gClient->GetPicture(dir_picture+"OFF.png",width_button,height_button));
+		state_capture = true;
+		gSystem->Exec("open capture.app");
+	}
+
 }
 
 Task::Task(TGHorizontalFrame *fMainFrame) : TGVerticalFrame(fMainFrame,width_task,height_task,kRaisedFrame){
@@ -292,9 +303,9 @@ Task::Task(TGHorizontalFrame *fMainFrame) : TGVerticalFrame(fMainFrame,width_tas
    	AddFrame(fb_send, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
    	fb_send->MoveResize(x_fb_send,y_fb_send,width_button,height_button);
 
-	fb_url = new TGPictureButton(this,gClient->GetPicture(dir_picture+"share.png",width_button,height_button));
+	fb_url = new TGPictureButton(this,gClient->GetPicture(dir_picture+"OFF.png",width_button,height_button));
 	fb_url->SetBackgroundColor(TColor::Number2Pixel(kRed+1));
-   	TQObject::Connect(fb_url,"Clicked()", "Task", this, "URL()");
+   	TQObject::Connect(fb_url,"Clicked()", "Task", this, "Capture_State()");
    	AddFrame(fb_url, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
    	fb_url->MoveResize(x_fb_send+500,y_fb_send,width_button,height_button);
 
@@ -811,8 +822,10 @@ void DevTimer::OnTimer(){
 void DevTimer::Start(){
 	TQObject::Disconnect(fb_start);
 
-	gSystem->Exec("pkill -f capture");
-	gSystem->Exec("open capture.app");
+	if(state_capture){
+		gSystem->Exec("pkill -f capture");
+		gSystem->Exec("open capture.app");
+	}
 
 	TString a = Form("%d.",ID);
 	gSystem->Exec("say -v "+who_say+" \"start "+process[0]+" Chain"+a+"\""+" &");
@@ -886,6 +899,7 @@ void DevTimer::Start(){
 
 	fb_start->SetPicture(gClient->GetPicture(dir_picture+"unlock.png",width_button,height_button));
 	TQObject::Connect(fb_start,"Clicked()", "DevTimer", this, "Unlock()");
+
 }
 
 void DevTimer::Skip(){
@@ -1055,13 +1069,13 @@ void developtimer()
 	fscanf(fs,"%s",buff);
 	sscanf(buff,"Webhook:%s",url_webhook);
 
-	fscanf(fs,"%s",buff);
-	sscanf(buff,"Dropbox:%s",url_dropbox);
+	// fscanf(fs,"%s",buff);
+	// sscanf(buff,"Dropbox:%s",url_dropbox);
 
 	who_say = Form("%s",speaker);
 
 	printf("Webhook:%s\n",url_webhook);
-	printf("Dropbox:%s\n",url_dropbox);
+	// printf("Dropbox:%s\n",url_dropbox);
 	printf("Number of chains:%d\n",Chain_num);
 	printf("Speaker:%s\n",speaker);
 	printf("-----------------------\n");
