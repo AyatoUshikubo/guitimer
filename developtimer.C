@@ -9,6 +9,8 @@
 
 //Mac:" -v Speaker" Speaker = Alex(US)Daniel(GB)Fiona(scotland)Fred(US)Karen(AU)Moira(IE)Rishi(IN)Samantha(US)Tessa(ZA)Veena(IN)Victoria(US) Kyoko(JP)
 TString who_say;
+TGTextEntry *entry_say;
+
 
 int x_timer = 172;
 
@@ -309,6 +311,14 @@ Task::Task(TGHorizontalFrame *fMainFrame) : TGVerticalFrame(fMainFrame,width_tas
    	AddFrame(fb_url, new TGLayoutHints(kLHintsLeft | kLHintsTop,2,2,2,2));
    	fb_url->MoveResize(x_fb_send+500,y_fb_send,width_button,height_button);
 
+	entry_say = new TGTextEntry(this);
+	AddFrame(entry_say, new TGLayoutHints(0,0,0,0));
+	entry_say->Resize(width_button,height_button);
+	// entry_say->SetTextColor(TColor::Number2Pixel(kOrange));
+	entry_say->ChangeBackground(TColor::Number2Pixel(kRed+1));
+	entry_say->MoveResize(1200,10,70,20);
+	entry_say->SetText(who_say);
+
 	timer->TurnOn();
 }
 
@@ -405,6 +415,8 @@ class Clock : public TGHorizontalFrame{
 
 void Clock::OnTimer(){
 	time(&t);
+
+	who_say = entry_say->GetText();
 
 	c1->cd();
 	c1->Clear();
@@ -1072,7 +1084,8 @@ void developtimer()
 	// fscanf(fs,"%s",buff);
 	// sscanf(buff,"Dropbox:%s",url_dropbox);
 
-	who_say = Form("%s",speaker);
+	// who_say = Form("%s",speaker);
+	who_say = speaker;
 
 	printf("Webhook:%s\n",url_webhook);
 	// printf("Dropbox:%s\n",url_dropbox);
