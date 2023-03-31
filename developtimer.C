@@ -238,11 +238,13 @@ void Task::Compare(){
 	// }
 
 	if(state_capture){
-		text->DrawTextNDC(0.65,0.875,"Capture function is active.");
+		text->DrawTextNDC(0.65,0.875,"Captured");
 	}
 	else{
-		text->DrawTextNDC(0.65,0.875,"Capture function is inactive.");
+		text->DrawTextNDC(0.65,0.875,"Not Captured");
 	}
+
+	text->DrawTextNDC(0.825,0.9,"Speaker:");
 
 	c1->Modified();
 	c1->Update();
