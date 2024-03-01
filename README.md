@@ -3,7 +3,9 @@
 2.Install Homebrew.  
 3.Install ROOT.  
 ```$ brew install root```  
-4.Move to 
+4.Move to the 'guitimer' directory.  
+5.Run the 'developtimer.C' file.  
+```$ root developtimer.C```  
 
 # GUI Timer
 <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/3.png" width="1280px">  
