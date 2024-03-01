@@ -1,6 +1,6 @@
 # Quickstart for Mac
-1.Install Xcode.
-2.Install Homebrew.
+1.Install Xcode
+2.Install Homebrew
 3.Install ROOT.
 ```aa```
 
