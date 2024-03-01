@@ -1,3 +1,9 @@
+# Quickstart for Mac
+1.Install Xcode.
+2.Install Homebrew.
+3.Install ROOT.
+```aa```
+
 # GUI Timer
 <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/3.png" width="1280px">  
 
