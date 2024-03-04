@@ -8,7 +8,10 @@
 ```$ root developtimer.C```  
 
 # GUI Timer
-<img src="https://github.com/AyatoUshikubo/guitimer/blob/image/3.png" width="1280px">  
+<img src="https://github.com/AyatoUshikubo/guitimer/blob/image/3.png" width="1280px"> 
+
+## Setting
+The number of timers and voice people, process times and process names can be edited from a text file named 'setting.txt'.
 
 ## Timer
 
