@@ -12,20 +12,23 @@
 
 ## Timer
 
-### Button
-
+### Start Button
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/start.png" width="80px">
-- **Function**: Start a timer. The label on this button will change to "Unlock".
+- The timer starts and this button turns into Unlock Button.
+### Unlock Button
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/unlock.png" width="80px">
-Resetボタンが使用可能になり、Lockボタンに切り替わる。
+- Reset Button becomes available and this button turns into Lock Button.
+### Lock Button
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/lock.png" width="80px">
-Resetボタンが使用不可になり、Unlockボタンに切り替わる。
+- Reset Button brcomes unusable and this button turns into Unlock button
+### Reset Button
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/reset.png" width="80px">
-タイマーがスタート前に戻る。
+- The timer returns to the state before Start Button was pressed.
 ## Current time
 Use radiobuttons to switch notation, 12h and 24h.
 ## Setting for countdown
-
+An audio countdown will be played.
+The countdown can be set at any time from 0 to 30 seconds ahead as desired.
 ## 画面収録のプライバシー設定(初回のみ)
 「設定」から「セキュリテイとプライバシー」を選択  
 「画面収録」を選択し、「capture」にチェックを入れる  
