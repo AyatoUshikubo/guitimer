@@ -12,10 +12,10 @@
 
 ## Timer
 
-### ボタン
+### Button
 
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/start.png" width="80px">
-タイマーがスタートし、Unlockボタンに切り替わる。
+- **Function**: Start a timer. The label on this button will change to "Unlock".
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/unlock.png" width="80px">
 Resetボタンが使用可能になり、Lockボタンに切り替わる。
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/lock.png" width="80px">
