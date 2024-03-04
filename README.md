@@ -22,7 +22,6 @@ Resetボタンが使用可能になり、Lockボタンに切り替わる。
 Resetボタンが使用不可になり、Unlockボタンに切り替わる。
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/reset.png" width="80px">
 タイマーがスタート前に戻る。
-## Task list
 ## Current time
 Use radiobuttons to switch notation, 12h and 24h.
 ## Setting for countdown
