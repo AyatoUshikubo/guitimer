@@ -27,7 +27,7 @@
 ## Current time
 Use radiobuttons to switch notation, 12h and 24h.
 ## Setting for countdown
-An audio countdown will be played.
+An audio countdown will be played.  
 The countdown can be set at any time from 0 to 30 seconds ahead as desired.
 ## 画面収録のプライバシー設定(初回のみ)
 「設定」から「セキュリテイとプライバシー」を選択  
