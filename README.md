@@ -1,5 +1,5 @@
 # Quickstart for Mac
-1.Install Xcode.  
+1.Install Xcode 15.1 and Command Line Tools.  
 2.Install Homebrew.  
 3.Install ROOT.  
 ```$ brew install root```  
