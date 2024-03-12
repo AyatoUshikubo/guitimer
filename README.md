@@ -17,7 +17,8 @@ The number of timers and voice people, process times and process names can be ed
 
 ### Start Button
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/start.png" width="80px">
-- The timer starts and this button turns into Unlock Button.
+- The timer starts and this button turns into Unlock Button.  
+- Screen is captured at intervals of a few seconds after pushing this button.
 ### Unlock Button
 #### <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/unlock.png" width="80px">
 - Reset Button becomes available and this button turns into Lock Button.
