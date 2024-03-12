@@ -40,4 +40,3 @@ The countdown can be set at any time from 0 to 30 seconds ahead as desired.
 <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/2.png" width="320px">  
 これをしないとデスクトップの背景しか写らない  
 <img src="https://github.com/AyatoUshikubo/guitimer/blob/image/timer.png" width="320px">  
-## テキストファイルからの編集
